@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Out Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <button id="playButton">CLICK ME</button>
+
+    <audio id="getOutAudio" src="https://raw.githubusercontent.com/anteq321/nfcgetout2/main/Get-out-meme.mp3" preload="auto"></audio>
+
+    <script>
+        const button = document.getElementById("playButton");
+        const audio = document.getElementById("getOutAudio");
+
+        button.addEventListener("click", () => {
+            audio.currentTime = 0; // zaczyna od początku
+            audio.play().catch(err => {
+                console.error("Błąd odtwarzania:", err);
+            });
+        });
+    </script>
+</body>
+</html>
